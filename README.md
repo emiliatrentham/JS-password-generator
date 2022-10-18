@@ -16,7 +16,7 @@ A random password generator built using JavaScript to create strong passwords an
 How does it work? The user is prompted to choose a password length ranging between 8 and 128 characters. Next, the user is prompted to choose whether they would like to include lower and uppercase letters, numbers, and/or special characters. Lastly, the user's choices are computed to generate a random password.
 
 ## Photos
-![The password generator webpage includes a title, a text box, and a generate password button that jumpstarts the application.](./Assets/images/project-screenshot.png)
+![The password generator webpage includes a title, a text box, and a generate password button that jumpstarts the application.](./Assets/project-screenshot.png)
 
 ## License
 Please refer to the LICENSE in the repo.
