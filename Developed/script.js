@@ -14,7 +14,7 @@ generateBtn.addEventListener("click", writePassword);
 ///////////////////////// DO NOT CHANGE ABOVE HERE /////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 
-// sets variables 
+// Set password parameter variables 
 var uppecaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "N", "M", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var lowercaseLetters = ["a", "b", "c", "d", "e", "f", "g","h", "i", "j", "k","l","m", "n", "o", "p" ,"q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -24,8 +24,9 @@ var password = [];
   
 function generatePassword() {
  /////////////////////////// WRITE YOUR CODE HERE /////////////////////////
- // validation 
-  var userChoice = window.prompt("How many characters would you like your password to contain? Password length must be between 8-128 characters.");
+  
+  // Ask user to input password lenght
+  var userChoice = window.prompt("How many characters would you like your password to contain? (8 - 128)");
   if (userChoice < 8) {
     window.alert("Password lenght must be at least 8 characters.");
     return;
@@ -36,13 +37,13 @@ function generatePassword() {
     return;
   }
 
-   // Taking inputs 
+  // Take password parameter inputs 
   let allowLowerCaseLetters = confirm("Click OK to confirm including lowercase letters");
   let allowUpperCaseLetters = confirm("click OK to confirm including uppercase letters");
   let allowSpecialCharacters = confirm("click OK to confirm including special characters");
   let allowNumericCharacters = confirm("click OK to confirm including numeric characters");
 
-   // Figuring out the allowed characters for the password
+  // Store password included characters
   if (allowLowerCaseLetters) {
     possibleCharacters = possibleCharacters.concat(lowercaseLetters)
   }
@@ -56,26 +57,22 @@ function generatePassword() {
     possibleCharacters = possibleCharacters.concat(numericCharacters)
   }
 
- // Generating random numbers
+ // Set minimum and maximum password lenght
   var min = 0;
   var max = possibleCharacters.length;
  
- // taking random number generator to provide random number fetching the element at that position from the possible character array to populate the password 
-
+ // Random number generator fetching an element from a position in the possible character array to populate the password 
   for (var i = 0; i < userChoice; i++) {
-    password[i] = possibleCharacters[Math.floor(Math.random() * (max - min + 1) + min)]
+    password[i] = possibleCharacters[Math.floor(Math.random() * possibleCharacters.length)];
   }
 
- // referencing password id and setting it's value equal to the password array
+ // Reference the password id and set it's value equal to the password array
   var x = document.getElementById('password');
   x.value = password.join("");
 }
 
-
-// Triggering the password generator so that the application restarts
+// Trigger the password generator so that the application restarts
 generatePassword()
-
-
 
 
   
