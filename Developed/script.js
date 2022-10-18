@@ -45,21 +45,17 @@ function generatePassword() {
 
   // Store password included characters
   if (allowLowerCaseLetters) {
-    possibleCharacters = possibleCharacters.concat(lowercaseLetters)
+    possibleCharacters = possibleCharacters.concat(lowercaseLetters);
   }
   if (allowUpperCaseLetters) {
-    possibleCharacters = possibleCharacters.concat(uppecaseLetters)
+    possibleCharacters = possibleCharacters.concat(uppecaseLetters);
   }
   if (allowSpecialCharacters) {
-    possibleCharacters = possibleCharacters.concat(specialCharacters)
+    possibleCharacters = possibleCharacters.concat(specialCharacters);
   }
   if (allowNumericCharacters) {
-    possibleCharacters = possibleCharacters.concat(numericCharacters)
+    possibleCharacters = possibleCharacters.concat(numericCharacters);
   }
-
- // Set minimum and maximum password lenght
-  var min = 0;
-  var max = possibleCharacters.length;
  
  // Random number generator fetching an element from a position in the possible character array to populate the password 
   for (var i = 0; i < userChoice; i++) {
@@ -69,10 +65,10 @@ function generatePassword() {
  // Reference the password id and set it's value equal to the password array
   var x = document.getElementById('password');
   x.value = password.join("");
-}
+};
 
-// Trigger the password generator so that the application restarts
-generatePassword()
+// Run the password generator for the first time
+generatePassword();
 
 
   
