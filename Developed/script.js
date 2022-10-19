@@ -7,6 +7,7 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
+  reset();
 }
 
 // Add event listener to generate button
@@ -23,7 +24,7 @@ var possibleCharacters = [];
 var password = []; 
   
 function generatePassword() {
- /////////////////////////// WRITE YOUR CODE HERE /////////////////////////
+  /////////////////////////// WRITE YOUR CODE HERE /////////////////////////
   
   // Ask user to input password lenght
   var userChoice = window.prompt("How many characters would you like your password to contain? (8 - 128)");
@@ -57,18 +58,24 @@ function generatePassword() {
     possibleCharacters = possibleCharacters.concat(numericCharacters);
   }
  
- // Random number generator fetching an element from a position in the possible character array to populate the password 
+  // Random number generator fetching an element from a position in the possible character array to populate the password 
   for (var i = 0; i < userChoice; i++) {
     password[i] = possibleCharacters[Math.floor(Math.random() * possibleCharacters.length)];
   }
 
- // Reference the password id and set it's value equal to the password array
-  var x = document.getElementById('password');
-  x.value = password.join("");
-};
+  // Specify value to be returned while concatenating elements from array 
+  return password.join("");
+}
 
-// Run the password generator for the first time
-generatePassword();
+  // Reset password generator values
+  function reset() {
+   password = []
+   possibleCharacters = []
+}
+
+
+
+
 
 
   
